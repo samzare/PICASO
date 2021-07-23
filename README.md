@@ -22,7 +22,7 @@ We have used preprocessed [smallNORB dataset](https://cs.nyu.edu/~ylclab/data/no
 ### Set Anomaly Detection
 In this experiment, we have used [CelebA dataset](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html). The preprocessing code is also provided in [Set Anomaly Detection](https://github.com/samzare/PICASO/blob/main/Set%20Anomaly%20Detection/celebA_preprocess.py) folder.
 ### State Prediction
-We used the same preproc used in the [Slot Attention paper](https://github.com/google-research/google-research/tree/master/slot_attention). We recommend using multiple GPUs for this experiment.
+We used the same process employed in the [Slot Attention paper](https://github.com/google-research/google-research/tree/master/slot_attention). We recommend using multiple GPUs for this experiment.
 ### Reference
 If you found our code useful, please consider citing our work.
 ```
