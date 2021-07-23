@@ -16,6 +16,22 @@ Set-input deep networks have recently drawn much interest in computer vision and
 This repository implements the amortized clustering, classification, set anomaly detection, and state prediction experiments in the [paper](https://arxiv.org/abs/2107.08305).
 
 ### Amortized Clustering
+You can use run.py to implement the experiment. To shift the data domain, you can use mvn_diag.py and add shift value to X.
 ### Classification
+We have used preprocessed [smallNORB dataset](https://cs.nyu.edu/~ylclab/data/norb-v1.0-small/) for this experiment. 
 ### Set Anomaly Detection
+In this experiment, we have used [CelebA dataset](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html). The preprocessing code is also provided in [Set Anomaly Detection](https://github.com/samzare/PICASO/blob/main/Set%20Anomaly%20Detection/celebA_preprocess.py) folder.
 ### State Prediction
+We used the same preproc used in the [Slot Attention paper](https://github.com/google-research/google-research/tree/master/slot_attention). We recommend using multiple GPUs for this experiment.
+### Reference
+If you found our code useful, please consider citing our work.
+```
+@misc{zare2021picaso,
+      title={PICASO: Permutation-Invariant Cascaded Attentional Set Operator}, 
+      author={Samira Zare and Hien Van Nguyen},
+      year={2021},
+      eprint={2107.08305},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
