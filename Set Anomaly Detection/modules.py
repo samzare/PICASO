@@ -109,11 +109,11 @@ class Gen_PICASO(nn.Module):
         #self.dim = dim
         #self.num_seeds = num_seeds
         self.mab = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
-        self.mab0 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
-        self.mab1 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
-        self.mab2 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
-        self.mab3 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
-        self.mab4 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
+        #self.mab0 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
+        #self.mab1 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
+        #self.mab2 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
+        #self.mab3 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
+        #self.mab4 = MAB(dim, dim_in, dim, num_heads, ln=ln)#, Vis=Vis)
         #self.mab5 = MAB(dim, dim_in, dim, num_heads, ln=ln, Vis=Vis)
         #self.mab6 = MAB(dim, dim_in, dim, num_heads, ln=ln, Vis=Vis)
         #self.mab = MAB(dim, dim, dim, num_heads, ln=ln)
@@ -124,16 +124,16 @@ class Gen_PICASO(nn.Module):
     def forward(self, X):
         
         H = self.mab(self.S.repeat(X.size(0), 1, 1), X)
-        X_prime = self.mab0(X, H)
+        X_prime = self.mab(X, H)
 
-        H_prime = self.mab1(H, X_prime)
-        X_prime2 = self.mab2(X_prime, H_prime)
+        H_prime = self.mab(H, X_prime)
+        X_prime2 = self.mab(X_prime, H_prime)
 
-        H_prime2 = self.mab3(H_prime, X_prime2)
-        X_prime3 = self.mab4(X_prime2, H_prime2)
+        H_prime2 = self.mab(H_prime, X_prime2)
+        X_prime3 = self.mab(X_prime2, H_prime2)
 
-        #H_prime3 = self.mab5(H_prime2, X_prime3)
-        #X_prime4 = self.mab6(X_prime3, H_prime3)
+        #H_prime3 = self.mab(H_prime2, X_prime3)
+        #X_prime4 = self.mab(X_prime3, H_prime3)
         
         xm = self.Lambda(H_prime2)
         x = self.Gamma(X_prime3)
